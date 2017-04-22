@@ -34,7 +34,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.basedir}/target/lib</outputDirectory>
+							<outputDirectory>${project.basedir}/target/${project.artifactId}_lib</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -48,7 +48,7 @@
 						<manifest>
 							<mainClass>forsenior.Main</mainClass>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
+							<classpathPrefix>${project.artifactId}_lib/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
