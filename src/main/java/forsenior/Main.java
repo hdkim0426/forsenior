@@ -24,10 +24,12 @@ public class Main {
 			Properties prop = new Properties();
 			prop.load(is);
 			TextToSpeech tts = new TextToSpeech(prop.getProperty("ttsid"), prop.getProperty("ttssecret"));
+
 			SpeechToText
-				.process(args[0])
-//				.forEach(MorphemeAnalyzer::analyze)
-				.forEach(tts::process);
+				.process(args[0]) // speech file ->String
+//				.map(MorphemeAnalyzer::analyze) // String -> Sentence
+//				.map(toAnswer) // Sentence -> String
+				.forEach(tts::process); // String -> speech file
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
