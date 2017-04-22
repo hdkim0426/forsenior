@@ -2,6 +2,8 @@ package forsenior;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class Main {
 	public static void main(String... args) {
@@ -18,10 +20,14 @@ public class Main {
 			System.exit(1);
 		}
 
-		try {
+		try (InputStream is = ClassLoader.getSystemResourceAsStream("forsenior.properties")) {
+			Properties prop = new Properties();
+			prop.load(is);
+			TextToSpeech tts = new TextToSpeech(prop.getProperty("ttsid"), prop.getProperty("ttssecret"));
 			SpeechToText
 				.process(args[0])
-				.forEach(MorphemeAnalyzer::analyze);
+//				.forEach(MorphemeAnalyzer::analyze)
+				.forEach(tts::process);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
