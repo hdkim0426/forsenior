@@ -23,7 +23,7 @@ public class TextToSpeech {
 		this.secret = secret;
 	}
 
-	public void process(final String text) {
+	public String process(final String text) {
         try {
         	final URL url = new URL(API_URL);
             final HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -47,6 +47,7 @@ public class TextToSpeech {
             				outputStream.write(bytes, 0, read);
             			}
             		}
+            		return new File(tempname).getAbsolutePath();
             	}
             } else {
             	try (BufferedReader br = new BufferedReader(new InputStreamReader(con.getErrorStream()))) {
@@ -61,5 +62,6 @@ public class TextToSpeech {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
 	}
 }

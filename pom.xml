@@ -9,7 +9,7 @@
 	<properties>
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
@@ -76,6 +76,12 @@
 			<version>2.0</version>
 			<systemPath>${project.basedir}/lib/org.snu.ids.ha.jar</systemPath>
 			<scope>system</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.soundlibs</groupId>
+			<artifactId>basicplayer</artifactId>
+			<version>3.0.0.0</version>
 		</dependency>
 	</dependencies>
 </project>
