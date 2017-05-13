@@ -46,7 +46,7 @@ public class Recoder {
 	}
 
 	private void start() {
-		System.out.println("Recording start.");
+		System.out.println("말씀하세요!");
 		try {
 			line = (TargetDataLine) AudioSystem.getLine(info);
 			line.open(format);
